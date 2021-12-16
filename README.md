@@ -1,9 +1,9 @@
 # Exercise EX3.3
 
-This exercise is part **three** of three parts of EX3. See also [Item 000](https://cppitems.github.io/#/item/000) for an overview and deadlines. The submission deadline for EX3 (all three parts) is **Mo	10.01.2021, 4pm**. The sources related to EX3.3 are available at https://github.com/cppitems/ex3.3.
+This exercise is part **three** of three parts of EX3. See also [Item 000](https://cppitems.github.io/#/item/000) for an overview and deadlines. The submission deadline for EX3 (all three parts) is **Mo 10.01.2021, 4pm**. The sources related to EX3.3 are available at https://github.com/cppitems/ex3.3.
 
 ## Task description
-In this exercise you are provided with a working implementaion of a `shared_ptr`. This implementation is simplified compared to the `shared_ptr` in the stdlib:
+In this exercise you are provided with a working implementation of a `shared_ptr`. This implementation is simplified compared to the `shared_ptr` in the stdlib:
 - no `weak_ptr` is present
 - no relation/conversion from `unique_ptr`
 - no custom deleter (and no support for array types)
@@ -13,7 +13,7 @@ It is your task to adopt the provide implementation of `shared_ptr` to provide t
 - **Task1**: adapt `include/shared_ptr_sync_atomics.hpp` to use atomics to ensure the required synchronization between threads.
 - **Task2**: adapt `include/shared_ptr_critical_section.hpp` to use critical sections (locks) to ensure the required synchronization between threads.
 
-**Note**: Beside the `namespace`-name, the three implementations in the handout `include/shared_ptr_sync_none.hpp`,  `include/shared_ptr_sync_atomics.hpp` , and `include/shared_ptr_critical_sections.hpp` are identical. **You should only adapt freely adapt the latter two files**.
+**Note**: Beside the `namespace`-name, the three implementations in the handout `include/shared_ptr_sync_none.hpp`,  `include/shared_ptr_sync_atomics.hpp` , and `include/shared_ptr_critical_sections.hpp` are identical. **You should only adapt the latter two files**.
 
 Prepare yourself for a discussion of your implementations.
 
