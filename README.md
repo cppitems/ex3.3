@@ -9,7 +9,7 @@ In this exercise you are provided with a working implementation of a `shared_ptr
 - no custom deleter (and no support for array types)
 - no thread-safe reference counting (this means also not all SMFs and members are thread safe) **-> It is your task ensure thread-safetyness in this exercise**
 
-It is your task to adopt the provide implementation of `shared_ptr` to provide thread-safe reference counting (like the "original" from the stlib). You should enable this thread-safetyness "twice" via different synchronization mechanisms:
+It is your task to adapt the provide implementation of `shared_ptr` to provide thread-safe reference counting (like the "original" from the stlib). You should enable this thread-safetyness "twice" via different synchronization mechanisms:
 - **Task1**: adapt `include/shared_ptr_sync_atomics.hpp` to use atomics to ensure the required synchronization between threads.
 - **Task2**: adapt `include/shared_ptr_critical_section.hpp` to use critical sections (locks) to ensure the required synchronization between threads.
 
@@ -17,7 +17,7 @@ It is your task to adopt the provide implementation of `shared_ptr` to provide t
 
 Prepare yourself for a discussion of your implementations.
 
-### Task details ands tests
+### Task details and tests
 Tests are provided for the implementation of the `shared_ptr`:
 - **TestA_SMF_and_get**: tests all special member functions.
 - **TestB_assign_reset**: tests reset(...) and assignment with involvement of `nullptr`.
@@ -38,7 +38,7 @@ ctest --verbose # run all tests with failure output interleaved
 **Note**: if you do not provide a define for `SYNC_METHOD`, `SYNC_METHOD=SYNC_NONE` is used as default, i.e. the non-thread-safe baseline implementation in `include/shared_ptr_sync_none.hpp` is selected and tested.
 
 ## Benchmark 
-The benchmark in `src/sync_benchmark.cpp` measures the runtime of a scenario where a resource is passed to four threads via a `shared_pointer` (similar to **TestD_threads**) and each thread makes "heavy use" of the `shared_ptr`s SMFs due to passing it to a nested function in a loop. Futher the benchmark utilizes and compares the two versions of the `shared_ptr` you implemented:
+The benchmark in `src/sync_benchmark.cpp` measures the runtime of a scenario where a resource is passed to four threads via a `shared_pointer` (similar to **TestD_threads**) and each thread makes "heavy use" of the `shared_ptr`s SMFs due to passing it to a nested function in a loop. Further the benchmark utilizes and compares the two versions of the `shared_ptr` you implemented:
 - `include/shared_ptr_sync_atomics.hpp` which uses *atomics* to synchronize access to the reference counters.
 - `include/shared_ptr_sync_critical_sections.hpp` which uses *critical sections* (locks) to synchronize access to the reference counters.
 You can build and run the benchmark using the following commands:
